@@ -57,7 +57,7 @@ def main() -> int:
         "historical_verdict_shape": metadata["judge"]["claim_verdicts"]
         == ["toy", "toy", "toy", "toy", "toy", "inconclusive"],
         "baseline_metadata_sha256": sha256(metadata_path)
-        == "6ea5ff3fc9c6793483ec0d5f6c207daeb86b024c982c09df59b03e2698db9eba",
+        == "253510da4d6c59744f3dfd0e357355e489cd6482b13c39e78aaacdc8b6ef1ec5",
     }
     passed = all(checks.values())
     result = {

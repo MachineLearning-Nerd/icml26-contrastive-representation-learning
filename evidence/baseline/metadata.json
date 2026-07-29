@@ -36,7 +36,14 @@
     "runtime_estimate": "Verifier under one minute; first locked dependency sync uncertain",
     "selected_backend": "hf",
     "selected_flavor": "cpu-upgrade",
+    "selected_image": "ghcr.io/astral-sh/uv:python3.12-bookworm-slim",
     "reason": "Uncertain first-time environment setup must not run locally"
+  },
+  "environment_attempts": {
+    "7d9e3a6f-d65c-4b28-a31b-35c10b47b568": {
+      "status": "FAILED",
+      "scientific_result": false,
+      "reason": "The default HF CPU image did not contain uv; verifier never started"
+    }
   }
 }
-
