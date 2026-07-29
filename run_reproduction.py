@@ -139,7 +139,54 @@ def main() -> int:
             "negative_control": negative_output,
         }
 
-    passed = baseline_passed and claim_1_passed and theorem_claims_passed
+    claim_6_dir = ROOT / ".openresearch" / "artifacts" / "claim_6_vector"
+    claim_6_positive = subprocess.run(
+        [
+            sys.executable,
+            str(claim_6_dir / "verifier.py"),
+            str(claim_6_dir / "claim_contract.json"),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    claim_6_negative = subprocess.run(
+        [
+            sys.executable,
+            str(claim_6_dir / "verifier.py"),
+            str(claim_6_dir / "negative_control.json"),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    claim_6_output = json.loads(claim_6_positive.stdout)
+    claim_6_control = json.loads(claim_6_negative.stdout)
+    claim_6_route_passed = (
+        claim_6_positive.returncode == 0
+        and claim_6_output["status"] == "CORROBORATED_AUTHOR_FIGURES"
+        and claim_6_negative.returncode != 0
+        and claim_6_control["status"] == "FAILED"
+    )
+    claims["claim_6_vector_route"] = {
+        "status": "CORROBORATED_AUTHOR_FIGURES"
+        if claim_6_route_passed
+        else "BLOCKED",
+        "claim_verdict": "BLOCKED",
+        "positive_checker_exit": claim_6_positive.returncode,
+        "negative_control_exit": claim_6_negative.returncode,
+        "positive_checker": claim_6_output,
+        "negative_control": claim_6_control,
+    }
+
+    passed = (
+        baseline_passed
+        and claim_1_passed
+        and theorem_claims_passed
+        and claim_6_route_passed
+    )
     result = {
         "mode": "cumulative_claim_verification",
         "status": "VERIFIED" if passed else "FAILED",
@@ -168,7 +215,9 @@ def main() -> int:
     if not passed:
         print("Cumulative verification failed.")
         return 1
-    print("Historical baseline preserved. Claims 1-5 proof certificates verified.")
+    print(
+        "Claims 1-5 verified; Claim 6 author figures corroborated but independent verdict remains BLOCKED."
+    )
     return 0
 
 
