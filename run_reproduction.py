@@ -59,11 +59,34 @@ def main() -> int:
         "baseline_metadata_sha256": sha256(metadata_path)
         == "253510da4d6c59744f3dfd0e357355e489cd6482b13c39e78aaacdc8b6ef1ec5",
     }
-    passed = all(checks.values())
+    baseline_passed = all(checks.values())
+    adversarial = subprocess.run(
+        [
+            os.fspath(Path(os.sys.executable)),
+            os.fspath(
+                ROOT
+                / ".openresearch"
+                / "artifacts"
+                / "claim_1_adversarial"
+                / "checker.py"
+            ),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    adversarial_result = json.loads(adversarial.stdout)
+    adversarial_passed = (
+        adversarial.returncode == 0
+        and adversarial_result["status"] == "NO_VALID_COUNTEREXAMPLE"
+    )
+    passed = baseline_passed and adversarial_passed
     result = {
-        "mode": "historical_judged_baseline",
+        "mode": "adversarial_claim_verification",
         "status": "VERIFIED" if passed else "FAILED",
-        "claim_upgrade": False,
+        "historical_baseline_passed": baseline_passed,
+        "claim_1_adversarial_route": adversarial_result,
         "historical_live_score": "5/12",
         "checks": checks,
         "provenance": {
@@ -85,9 +108,9 @@ def main() -> int:
     print("=== REPRODUCTION SUMMARY ===")
     print(json.dumps(result, indent=2, sort_keys=True))
     if not passed:
-        print("Baseline integrity check failed.")
+        print("Adversarial route failed.")
         return 1
-    print("Historical baseline preserved. No claim is upgraded by this run.")
+    print("Historical baseline preserved. No valid Claim 1 counterexample found.")
     return 0
 
 

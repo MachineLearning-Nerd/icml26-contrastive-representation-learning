@@ -1,0 +1,20 @@
+{
+  "claim_id": 1,
+  "route": "adversarial assumption and counterexample audit",
+  "target": "Find a loss minimizer that is not an AUC maximizer while satisfying the paper proof's well-posedness requirements.",
+  "valid_counterexample_requirements": [
+    "tau > 0",
+    "strictly positive finite likelihood ratios",
+    "finite population risk",
+    "a real-valued minimizer exists",
+    "the scorer ranges over all measurable functions"
+  ],
+  "audited_boundaries": [
+    "support mismatch",
+    "likelihood-ratio ties",
+    "tau <= 0",
+    "restricted constant scorer class"
+  ],
+  "acceptance": "Exit zero only if no valid counterexample is found and each invalid control is rejected for its exact assumption violation."
+}
+
