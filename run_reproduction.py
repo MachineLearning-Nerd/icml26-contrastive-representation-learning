@@ -34,6 +34,22 @@ def available_cpus() -> int:
     return os.cpu_count() or 1
 
 
+def run_certificate(claim: int, filename: str) -> tuple[int, dict[str, object]]:
+    claim_dir = ROOT / ".openresearch" / "artifacts" / f"claim_{claim}"
+    completed = subprocess.run(
+        [
+            sys.executable,
+            str(claim_dir / "verifier.py"),
+            str(claim_dir / filename),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    return completed.returncode, json.loads(completed.stdout)
+
+
 def main() -> int:
     started = time.monotonic()
     metadata_path = BASELINE / "metadata.json"
@@ -95,20 +111,40 @@ def main() -> int:
         and negative_result["failure_reason"]
         == "reversed likelihood-ratio ordering is not AUC-optimal"
     )
-    passed = baseline_passed and claim_1_passed
+    claims = {
+        "claim_1": {
+            "status": "VERIFIED" if claim_1_passed else "BLOCKED",
+            "positive_checker_exit": positive.returncode,
+            "negative_control_exit": negative.returncode,
+            "positive_checker": positive_result,
+            "negative_control": negative_result,
+        }
+    }
+    theorem_claims_passed = True
+    for claim in (2, 3, 4, 5):
+        positive_exit, positive_output = run_certificate(claim, "proof_certificate.json")
+        negative_exit, negative_output = run_certificate(claim, "negative_control.json")
+        claim_passed = (
+            positive_exit == 0
+            and positive_output["status"] == "VERIFIED"
+            and negative_exit != 0
+            and negative_output["status"] == "FAILED"
+        )
+        theorem_claims_passed = theorem_claims_passed and claim_passed
+        claims[f"claim_{claim}"] = {
+            "status": "VERIFIED" if claim_passed else "BLOCKED",
+            "positive_checker_exit": positive_exit,
+            "negative_control_exit": negative_exit,
+            "positive_checker": positive_output,
+            "negative_control": negative_output,
+        }
+
+    passed = baseline_passed and claim_1_passed and theorem_claims_passed
     result = {
         "mode": "cumulative_claim_verification",
         "status": "VERIFIED" if passed else "FAILED",
         "historical_baseline_passed": baseline_passed,
-        "claims": {
-            "claim_1": {
-                "status": "VERIFIED" if claim_1_passed else "BLOCKED",
-                "positive_checker_exit": positive.returncode,
-                "negative_control_exit": negative.returncode,
-                "positive_checker": positive_result,
-                "negative_control": negative_result,
-            }
-        },
+        "claims": claims,
         "historical_live_score": "5/12",
         "checks": checks,
         "provenance": {
@@ -132,7 +168,7 @@ def main() -> int:
     if not passed:
         print("Cumulative verification failed.")
         return 1
-    print("Historical baseline preserved. Claim 1 proof certificate verified.")
+    print("Historical baseline preserved. Claims 1-5 proof certificates verified.")
     return 0
 
 

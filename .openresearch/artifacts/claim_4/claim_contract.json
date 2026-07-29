@@ -1,0 +1,13 @@
+{
+  "claim_id": 4,
+  "source_anchor": "Theorem 4.6 (thm:gen_SSCRL)",
+  "domain": "SSCRL with one negative sample set shared by all anchors and the bounded ReLU-network class in Assumption 4.1",
+  "assumptions": [
+    "shared negatives are independent of positive pairs",
+    "bounded unit-norm inputs and spectrally bounded ReLU network",
+    "tau > 0, n and m positive, delta in (0,1)"
+  ],
+  "quantifier": "with probability at least 1-delta, uniformly for all w in W",
+  "predicate": "the exact displayed bound has 1/sqrt(m) and 1/sqrt(n) polynomial factors with logarithmic, architecture, and temperature factors",
+  "verdict_rule": "The source supports tilde-O(1/sqrt(m)+1/sqrt(n)); literal log-free O is not asserted"
+}
