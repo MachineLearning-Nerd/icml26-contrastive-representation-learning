@@ -181,6 +181,46 @@ def main() -> int:
         "negative_control": claim_6_control,
     }
 
+    raster_dir = ROOT / ".openresearch" / "artifacts" / "claim_6_raster"
+    raster_positive = subprocess.run(
+        [
+            sys.executable,
+            str(raster_dir / "verifier.py"),
+            str(raster_dir / "claim_contract.json"),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    raster_negative = subprocess.run(
+        [
+            sys.executable,
+            str(raster_dir / "verifier.py"),
+            str(raster_dir / "negative_control.json"),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    raster_output = json.loads(raster_positive.stdout)
+    raster_control = json.loads(raster_negative.stdout)
+    raster_passed = (
+        raster_positive.returncode == 0
+        and raster_output["status"] == "CORROBORATED_RASTER"
+        and raster_negative.returncode != 0
+        and raster_control["status"] == "FAILED"
+    )
+    claims["claim_6_raster_route"] = {
+        "status": "CORROBORATED_RASTER" if raster_passed else "BLOCKED",
+        "claim_verdict": "BLOCKED",
+        "positive_checker_exit": raster_positive.returncode,
+        "negative_control_exit": raster_negative.returncode,
+        "positive_checker": raster_output,
+        "negative_control": raster_control,
+    }
+
     falsification_dir = (
         ROOT / ".openresearch" / "artifacts" / "claim_6_falsification"
     )
@@ -228,6 +268,7 @@ def main() -> int:
         and claim_1_passed
         and theorem_claims_passed
         and claim_6_route_passed
+        and raster_passed
         and falsification_route_passed
     )
     result = {
