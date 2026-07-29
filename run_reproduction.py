@@ -139,7 +139,52 @@ def main() -> int:
             "negative_control": negative_output,
         }
 
-    passed = baseline_passed and claim_1_passed and theorem_claims_passed
+    raster_dir = ROOT / ".openresearch" / "artifacts" / "claim_6_raster"
+    raster_positive = subprocess.run(
+        [
+            sys.executable,
+            str(raster_dir / "verifier.py"),
+            str(raster_dir / "claim_contract.json"),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    raster_negative = subprocess.run(
+        [
+            sys.executable,
+            str(raster_dir / "verifier.py"),
+            str(raster_dir / "negative_control.json"),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    raster_output = json.loads(raster_positive.stdout)
+    raster_control = json.loads(raster_negative.stdout)
+    raster_passed = (
+        raster_positive.returncode == 0
+        and raster_output["status"] == "CORROBORATED_RASTER"
+        and raster_negative.returncode != 0
+        and raster_control["status"] == "FAILED"
+    )
+    claims["claim_6_raster_route"] = {
+        "status": "CORROBORATED_RASTER" if raster_passed else "BLOCKED",
+        "claim_verdict": "BLOCKED",
+        "positive_checker_exit": raster_positive.returncode,
+        "negative_control_exit": raster_negative.returncode,
+        "positive_checker": raster_output,
+        "negative_control": raster_control,
+    }
+
+    passed = (
+        baseline_passed
+        and claim_1_passed
+        and theorem_claims_passed
+        and raster_passed
+    )
     result = {
         "mode": "cumulative_claim_verification",
         "status": "VERIFIED" if passed else "FAILED",
@@ -168,7 +213,9 @@ def main() -> int:
     if not passed:
         print("Cumulative verification failed.")
         return 1
-    print("Historical baseline preserved. Claims 1-5 proof certificates verified.")
+    print(
+        "Claims 1-5 verified; Claim 6 raster figures corroborated but independent verdict remains BLOCKED."
+    )
     return 0
 
 
