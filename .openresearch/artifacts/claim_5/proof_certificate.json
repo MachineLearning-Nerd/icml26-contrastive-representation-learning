@@ -1,0 +1,14 @@
+{
+  "schema": "crl-theorem-certificate-v1",
+  "mode": "positive",
+  "claim_id": 5,
+  "source_sha256": "2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764",
+  "source_anchor": "generalization.tex eq:err_decom_inner_outer and eq:err_decom_sscrl",
+  "decomposition_relation": "<=",
+  "log_inequality": "log(1+x) > x/(1+x) for x>0",
+  "leading_term_balance": {
+    "SCRL": "m=sqrt(n)",
+    "SSCRL": "m=n"
+  },
+  "prior_bound_comparison": "a bound comparison at fixed n, not a claim that true error is monotone"
+}

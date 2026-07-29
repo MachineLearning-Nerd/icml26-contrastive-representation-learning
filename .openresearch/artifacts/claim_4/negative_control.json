@@ -1,0 +1,12 @@
+{
+  "schema": "crl-theorem-certificate-v1",
+  "mode": "negative",
+  "claim_id": 4,
+  "source_sha256": "2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764",
+  "source_anchor": "deliberately invalid certificate",
+  "negative_sampling": "independent negatives resampled for every anchor",
+  "probability": "at least 1-delta",
+  "uniform_over": "all w in W",
+  "reported_rate": "O(1/m + 1/sqrt(n))",
+  "expected_failure": "the shared-negative assumption and SSCRL inner rate were replaced"
+}

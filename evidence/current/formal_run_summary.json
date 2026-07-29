@@ -1,0 +1,1020 @@
+{
+  "checks": {
+    "baseline_metadata_sha256": true,
+    "historical_score_exact": true,
+    "historical_verdict_shape": true,
+    "judged_revision_exact": true,
+    "metadata_json_valid": true,
+    "protected_space_file_count_is_13": true,
+    "verdict_filter_uses_space_id": true
+  },
+  "claims": {
+    "claim_1": {
+      "negative_control": {
+        "certificate": "negative_control.json",
+        "exact_rational_audit": {
+          "checked_distributions": 7371,
+          "checked_rankings": 162000,
+          "first_failure": {
+            "candidate_auc": "5/12",
+            "maximum_auc": "7/12",
+            "p_minus_weights": [
+              1,
+              2
+            ],
+            "p_plus_weights": [
+              1,
+              1
+            ],
+            "support_size": 2
+          },
+          "passed": false,
+          "score_order": "descending_likelihood_ratio"
+        },
+        "failure_reason": "reversed likelihood-ratio ordering is not AUC-optimal",
+        "status": "FAILED",
+        "structural_checks": {
+          "claim_id": true,
+          "recognized_score_order": true,
+          "schema": true
+        },
+        "symbolic_checks": {
+          "kl_equality_reconstructs_positive_density": true,
+          "pairwise_exchange_factorization": true,
+          "positive_temperature_preserves_log_order": true
+        }
+      },
+      "negative_control_exit": 1,
+      "positive_checker": {
+        "certificate": "proof_certificate.json",
+        "exact_rational_audit": {
+          "checked_distributions": 7371,
+          "checked_rankings": 162000,
+          "first_failure": null,
+          "passed": true,
+          "score_order": "ascending_likelihood_ratio"
+        },
+        "status": "VERIFIED",
+        "structural_checks": {
+          "claim_id": true,
+          "recognized_score_order": true,
+          "schema": true
+        },
+        "symbolic_checks": {
+          "kl_equality_reconstructs_positive_density": true,
+          "pairwise_exchange_factorization": true,
+          "positive_temperature_preserves_log_order": true
+        }
+      },
+      "positive_checker_exit": 0,
+      "status": "VERIFIED"
+    },
+    "claim_2": {
+      "negative_control": {
+        "certificate": "negative_control.json",
+        "failure_reason": "the calibration coefficient was changed from 2 to 1",
+        "scientific_checks": {
+          "claim": 2,
+          "independent_finite_audit": {
+            "distribution_triples": 4672,
+            "minimum_bound_margin": 0.0,
+            "passed": true,
+            "role": "finite stress audit; the symbolic certificate carries the universal result"
+          },
+          "status": "FAILED",
+          "symbolic_checks": {
+            "pinsker_coefficient_is_exact": false,
+            "positive_temperature_assumed": true,
+            "proof_chain_is_non_circular": true,
+            "rearrangement_identity": true
+          }
+        },
+        "status": "FAILED",
+        "structural_checks": {
+          "positive_mode": false,
+          "schema": true,
+          "source_sha256": true
+        }
+      },
+      "negative_control_exit": 1,
+      "positive_checker": {
+        "certificate": "proof_certificate.json",
+        "scientific_checks": {
+          "claim": 2,
+          "independent_finite_audit": {
+            "distribution_triples": 4672,
+            "minimum_bound_margin": 0.0,
+            "passed": true,
+            "role": "finite stress audit; the symbolic certificate carries the universal result"
+          },
+          "status": "VERIFIED",
+          "symbolic_checks": {
+            "pinsker_coefficient_is_exact": true,
+            "positive_temperature_assumed": true,
+            "proof_chain_is_non_circular": true,
+            "rearrangement_identity": true
+          }
+        },
+        "status": "VERIFIED",
+        "structural_checks": {
+          "positive_mode": true,
+          "schema": true,
+          "source_sha256": true
+        }
+      },
+      "positive_checker_exit": 0,
+      "status": "VERIFIED"
+    },
+    "claim_3": {
+      "negative_control": {
+        "certificate": "negative_control.json",
+        "failure_reason": "triangle inequality was replaced by equality and logarithms were erased",
+        "scientific_checks": {
+          "checks": {
+            "inner_exact_polynomial_rate": true,
+            "log_factor_not_erased": false,
+            "outer_tilde_rate": true,
+            "probability_quantifier_preserved": true,
+            "triangle_combination": false,
+            "uniform_quantifier_preserved": true
+          },
+          "claim": 3,
+          "status": "FAILED"
+        },
+        "status": "FAILED",
+        "structural_checks": {
+          "positive_mode": false,
+          "schema": true,
+          "source_sha256": true
+        }
+      },
+      "negative_control_exit": 1,
+      "positive_checker": {
+        "certificate": "proof_certificate.json",
+        "scientific_checks": {
+          "checks": {
+            "inner_exact_polynomial_rate": true,
+            "log_factor_not_erased": true,
+            "outer_tilde_rate": true,
+            "probability_quantifier_preserved": true,
+            "triangle_combination": true,
+            "uniform_quantifier_preserved": true
+          },
+          "claim": 3,
+          "status": "VERIFIED"
+        },
+        "status": "VERIFIED",
+        "structural_checks": {
+          "positive_mode": true,
+          "schema": true,
+          "source_sha256": true
+        }
+      },
+      "positive_checker_exit": 0,
+      "status": "VERIFIED"
+    },
+    "claim_4": {
+      "negative_control": {
+        "certificate": "negative_control.json",
+        "failure_reason": "the shared-negative assumption and SSCRL inner rate were replaced",
+        "scientific_checks": {
+          "checks": {
+            "inner_tilde_rate": true,
+            "log_factor_not_erased": false,
+            "outer_tilde_rate": true,
+            "probability_quantifier_preserved": true,
+            "shared_negative_sampling_preserved": false,
+            "uniform_quantifier_preserved": true
+          },
+          "claim": 4,
+          "status": "FAILED"
+        },
+        "status": "FAILED",
+        "structural_checks": {
+          "positive_mode": false,
+          "schema": true,
+          "source_sha256": true
+        }
+      },
+      "negative_control_exit": 1,
+      "positive_checker": {
+        "certificate": "proof_certificate.json",
+        "scientific_checks": {
+          "checks": {
+            "inner_tilde_rate": true,
+            "log_factor_not_erased": true,
+            "outer_tilde_rate": true,
+            "probability_quantifier_preserved": true,
+            "shared_negative_sampling_preserved": true,
+            "uniform_quantifier_preserved": true
+          },
+          "claim": 4,
+          "status": "VERIFIED"
+        },
+        "status": "VERIFIED",
+        "structural_checks": {
+          "positive_mode": true,
+          "schema": true,
+          "source_sha256": true
+        }
+      },
+      "positive_checker_exit": 0,
+      "status": "VERIFIED"
+    },
+    "claim_5": {
+      "negative_control": {
+        "certificate": "negative_control.json",
+        "failure_reason": "the triangle-inequality decomposition was asserted as additive equality",
+        "scientific_checks": {
+          "checks": {
+            "balance_points": true,
+            "decomposition_is_inequality": false,
+            "equality_negative_control": true,
+            "log_inequality_certificate": true,
+            "prior_bound_scope": false,
+            "scrl_inner_bound_strictly_decreases": true,
+            "sscrl_log_term_derivative_negative": true,
+            "triangle_inequality": true
+          },
+          "claim": 5,
+          "status": "FAILED"
+        },
+        "status": "FAILED",
+        "structural_checks": {
+          "positive_mode": false,
+          "schema": true,
+          "source_sha256": true
+        }
+      },
+      "negative_control_exit": 1,
+      "positive_checker": {
+        "certificate": "proof_certificate.json",
+        "scientific_checks": {
+          "checks": {
+            "balance_points": true,
+            "decomposition_is_inequality": true,
+            "equality_negative_control": true,
+            "log_inequality_certificate": true,
+            "prior_bound_scope": true,
+            "scrl_inner_bound_strictly_decreases": true,
+            "sscrl_log_term_derivative_negative": true,
+            "triangle_inequality": true
+          },
+          "claim": 5,
+          "status": "VERIFIED"
+        },
+        "status": "VERIFIED",
+        "structural_checks": {
+          "positive_mode": true,
+          "schema": true,
+          "source_sha256": true
+        }
+      },
+      "positive_checker_exit": 0,
+      "status": "VERIFIED"
+    },
+    "claim_6_falsification_route": {
+      "negative_control": {
+        "assumption_audit": {
+          "all_required_assumptions_established": true,
+          "negative_positive_independence": true,
+          "shared_negatives": true
+        },
+        "checks": {
+          "no_valid_falsification": false,
+          "positive_mode": false,
+          "schema": true,
+          "source_hash": true
+        },
+        "conclusion": "An assumption-satisfying injected contradiction was detected.",
+        "critical_fit": {
+          "coefficient": 0.3999999999999865,
+          "exponent_with_free_coefficient": 1.000000000000002,
+          "scaling_violation": false
+        },
+        "plateau_ranges": {
+          "Flickr/10M": 1.4200000000000017,
+          "Flickr/14M": 1.2899999999999991,
+          "Flickr/6M": 0.6600000000000001,
+          "ImageNet/10M": 0.1599999999999966,
+          "ImageNet/14M": 2.0,
+          "ImageNet/6M": 0.3100000000000023,
+          "MSCOCO/10M": 0.2699999999999996,
+          "MSCOCO/14M": 1.0700000000000003,
+          "MSCOCO/6M": 1.42
+        },
+        "plateau_violations": [
+          "ImageNet/14M"
+        ],
+        "precritical_gains": {
+          "Flickr/10M": {
+            "gain_10_to_40": 16.99,
+            "gain_1_to_10": 9.35
+          },
+          "Flickr/14M": {
+            "gain_10_to_40": 18.550000000000004,
+            "gain_1_to_10": 13.319999999999999
+          },
+          "Flickr/6M": {
+            "gain_10_to_40": 12.219999999999999,
+            "gain_1_to_10": 5.6899999999999995
+          },
+          "ImageNet/10M": {
+            "gain_10_to_40": 20.03,
+            "gain_1_to_10": 15.609999999999998
+          },
+          "ImageNet/14M": {
+            "gain_10_to_40": -11.7,
+            "gain_1_to_10": 19.63
+          },
+          "ImageNet/6M": {
+            "gain_10_to_40": 19.68,
+            "gain_1_to_10": 7.539999999999999
+          },
+          "MSCOCO/10M": {
+            "gain_10_to_40": 10.799999999999999,
+            "gain_1_to_10": 6.49
+          },
+          "MSCOCO/14M": {
+            "gain_10_to_40": 10.71,
+            "gain_1_to_10": 9.17
+          },
+          "MSCOCO/6M": {
+            "gain_10_to_40": 7.59,
+            "gain_1_to_10": 3.1599999999999997
+          }
+        },
+        "precritical_violations": [
+          "ImageNet/14M"
+        ],
+        "small_postcritical_declines": {
+          "ImageNet/10M": [
+            -0.0899999999999963
+          ],
+          "ImageNet/14M": [
+            -1.0,
+            -1.0
+          ]
+        },
+        "status": "VALID_FALSIFICATION"
+      },
+      "negative_control_exit": 1,
+      "positive_checker": {
+        "assumption_audit": {
+          "all_required_assumptions_established": false,
+          "negative_positive_independence": false,
+          "shared_negatives": true
+        },
+        "checks": {
+          "no_valid_falsification": true,
+          "positive_mode": true,
+          "schema": true,
+          "source_hash": true
+        },
+        "conclusion": "No assumption-satisfying contradiction is established; missing independence and uncertainty cannot be converted into falsification.",
+        "critical_fit": {
+          "coefficient": 0.3999999999999865,
+          "exponent_with_free_coefficient": 1.000000000000002,
+          "scaling_violation": false
+        },
+        "plateau_ranges": {
+          "Flickr/10M": 1.4200000000000017,
+          "Flickr/14M": 1.2899999999999991,
+          "Flickr/6M": 0.6600000000000001,
+          "ImageNet/10M": 0.1599999999999966,
+          "ImageNet/14M": 0.4000000000000057,
+          "ImageNet/6M": 0.3100000000000023,
+          "MSCOCO/10M": 0.2699999999999996,
+          "MSCOCO/14M": 1.0700000000000003,
+          "MSCOCO/6M": 1.42
+        },
+        "plateau_violations": [],
+        "precritical_gains": {
+          "Flickr/10M": {
+            "gain_10_to_40": 16.99,
+            "gain_1_to_10": 9.35
+          },
+          "Flickr/14M": {
+            "gain_10_to_40": 18.550000000000004,
+            "gain_1_to_10": 13.319999999999999
+          },
+          "Flickr/6M": {
+            "gain_10_to_40": 12.219999999999999,
+            "gain_1_to_10": 5.6899999999999995
+          },
+          "ImageNet/10M": {
+            "gain_10_to_40": 20.03,
+            "gain_1_to_10": 15.609999999999998
+          },
+          "ImageNet/14M": {
+            "gain_10_to_40": 19.099999999999998,
+            "gain_1_to_10": 19.63
+          },
+          "ImageNet/6M": {
+            "gain_10_to_40": 19.68,
+            "gain_1_to_10": 7.539999999999999
+          },
+          "MSCOCO/10M": {
+            "gain_10_to_40": 10.799999999999999,
+            "gain_1_to_10": 6.49
+          },
+          "MSCOCO/14M": {
+            "gain_10_to_40": 10.71,
+            "gain_1_to_10": 9.17
+          },
+          "MSCOCO/6M": {
+            "gain_10_to_40": 7.59,
+            "gain_1_to_10": 3.1599999999999997
+          }
+        },
+        "precritical_violations": [],
+        "small_postcritical_declines": {
+          "ImageNet/10M": [
+            -0.0899999999999963
+          ],
+          "ImageNet/14M": [
+            -0.25
+          ]
+        },
+        "status": "NO_VALID_FALSIFICATION"
+      },
+      "positive_checker_exit": 0,
+      "route_completed": true,
+      "status": "BLOCKED"
+    },
+    "claim_6_raster_route": {
+      "claim_verdict": "BLOCKED",
+      "negative_control": {
+        "checks": {
+          "all_45_points_found": true,
+          "pixel_agreement": false,
+          "positive_mode": false,
+          "schema": true,
+          "source_hash": true
+        },
+        "diagnostics": {
+          "allowed_error": 0.1,
+          "maximum_absolute_error": 0.7693780000000001,
+          "median_absolute_error": 0.024478,
+          "point_count": 45
+        },
+        "limitation": "independent pixel digitization of author figures, not independent CLIP training",
+        "observed": {
+          "Flickr mean recall@1": {
+            "10M": [
+              1.670534,
+              10.510441,
+              27.737819,
+              27.981439,
+              28.990719
+            ],
+            "14M": [
+              2.157773,
+              14.651972,
+              33.341067,
+              33.932715,
+              34.62877
+            ],
+            "6M": [
+              0.974478,
+              6.612529,
+              18.863109,
+              19.280742,
+              19.524362
+            ]
+          },
+          "ImageNet top-1 accuracy": {
+            "10M": [
+              2.093264,
+              16.891192,
+              37.056995,
+              36.994819,
+              37.160622
+            ],
+            "14M": [
+              2.839378,
+              21.409326,
+              40.642487,
+              41.181347,
+              40.932642
+            ],
+            "6M": [
+              1.098446,
+              8.601036,
+              28.248705,
+              28.373057,
+              28.580311
+            ]
+          },
+          "MSCOCO mean recall@1": {
+            "10M": [
+              0.871003,
+              7.111356,
+              17.938258,
+              18.224917,
+              18.246968
+            ],
+            "14M": [
+              1.356119,
+              9.801544,
+              20.595369,
+              21.223815,
+              21.68688
+            ],
+            "6M": [
+              0.363837,
+              3.495039,
+              10.992282,
+              12.227122,
+              12.513782
+            ]
+          }
+        },
+        "source_sha256": "2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764",
+        "status": "FAILED"
+      },
+      "negative_control_exit": 1,
+      "positive_checker": {
+        "checks": {
+          "all_45_points_found": true,
+          "pixel_agreement": true,
+          "positive_mode": true,
+          "schema": true,
+          "source_hash": true
+        },
+        "diagnostics": {
+          "allowed_error": 0.8,
+          "maximum_absolute_error": 0.7693780000000001,
+          "median_absolute_error": 0.024478,
+          "point_count": 45
+        },
+        "limitation": "independent pixel digitization of author figures, not independent CLIP training",
+        "observed": {
+          "Flickr mean recall@1": {
+            "10M": [
+              1.670534,
+              10.510441,
+              27.737819,
+              27.981439,
+              28.990719
+            ],
+            "14M": [
+              2.157773,
+              14.651972,
+              33.341067,
+              33.932715,
+              34.62877
+            ],
+            "6M": [
+              0.974478,
+              6.612529,
+              18.863109,
+              19.280742,
+              19.524362
+            ]
+          },
+          "ImageNet top-1 accuracy": {
+            "10M": [
+              2.093264,
+              16.891192,
+              37.056995,
+              36.994819,
+              37.160622
+            ],
+            "14M": [
+              2.839378,
+              21.409326,
+              40.642487,
+              41.181347,
+              40.932642
+            ],
+            "6M": [
+              1.098446,
+              8.601036,
+              28.248705,
+              28.373057,
+              28.580311
+            ]
+          },
+          "MSCOCO mean recall@1": {
+            "10M": [
+              0.871003,
+              7.111356,
+              17.938258,
+              18.224917,
+              18.246968
+            ],
+            "14M": [
+              1.356119,
+              9.801544,
+              20.595369,
+              21.223815,
+              21.68688
+            ],
+            "6M": [
+              0.363837,
+              3.495039,
+              10.992282,
+              12.227122,
+              12.513782
+            ]
+          }
+        },
+        "source_sha256": "2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764",
+        "status": "CORROBORATED_RASTER"
+      },
+      "positive_checker_exit": 0,
+      "status": "CORROBORATED_RASTER"
+    },
+    "claim_6_release_route": {
+      "claim_verifier": {
+        "claim": 6,
+        "missing_release_items": [
+          "paper_specific_code_url",
+          "paper_specific_config_url",
+          "raw_section5_table_url",
+          "checkpoint_urls",
+          "seed_record",
+          "uncertainty_record",
+          "dfn_split_identifiers",
+          "negative_subset_identifiers"
+        ],
+        "reason": "the exact full-scale experiment cannot be independently executed from released materials",
+        "status": "BLOCKED"
+      },
+      "claim_verifier_exit": 1,
+      "negative_control": {
+        "checks": {
+          "configuration_count": true,
+          "minimum_sample_count": true,
+          "paper_source_hash": true,
+          "positive_mode": false,
+          "release_inventory_consistent": false,
+          "schema": true
+        },
+        "exact_workload": {
+          "anchor_sizes": 3,
+          "minimum_models_without_repeats": 15,
+          "minimum_processed_samples_without_repeats": 4800000000,
+          "negative_ratios": 5,
+          "processed_samples_per_model": 320000000,
+          "uncertainty_runs_reported": 0
+        },
+        "generic_fastclip_code_is_not_paper_configuration": true,
+        "missing_release_items": [
+          "dfn_split_identifiers",
+          "negative_subset_identifiers",
+          "paper_specific_code_url",
+          "paper_specific_config_url",
+          "raw_section5_table_url",
+          "seed_record",
+          "uncertainty_record"
+        ],
+        "reason": "CPU-only independent training cannot be specified reproducibly: paper-specific configuration, data identities, raw runs, checkpoints, seeds, and uncertainty are not released.",
+        "status": "FAILED"
+      },
+      "negative_control_exit": 1,
+      "release_audit": {
+        "checks": {
+          "configuration_count": true,
+          "minimum_sample_count": true,
+          "paper_source_hash": true,
+          "positive_mode": true,
+          "release_inventory_consistent": true,
+          "schema": true
+        },
+        "exact_workload": {
+          "anchor_sizes": 3,
+          "minimum_models_without_repeats": 15,
+          "minimum_processed_samples_without_repeats": 4800000000,
+          "negative_ratios": 5,
+          "processed_samples_per_model": 320000000,
+          "uncertainty_runs_reported": 0
+        },
+        "generic_fastclip_code_is_not_paper_configuration": true,
+        "missing_release_items": [
+          "checkpoint_urls",
+          "dfn_split_identifiers",
+          "negative_subset_identifiers",
+          "paper_specific_code_url",
+          "paper_specific_config_url",
+          "raw_section5_table_url",
+          "seed_record",
+          "uncertainty_record"
+        ],
+        "reason": "CPU-only independent training cannot be specified reproducibly: paper-specific configuration, data identities, raw runs, checkpoints, seeds, and uncertainty are not released.",
+        "status": "BLOCKED"
+      },
+      "release_audit_exit": 0,
+      "route_completed": true,
+      "status": "BLOCKED"
+    },
+    "claim_6_vector_route": {
+      "claim_verdict": "BLOCKED",
+      "negative_control": {
+        "checks": {
+          "all_10_to_40_gains_exceed_threshold": true,
+          "all_40_to_100_ranges_below_threshold": true,
+          "critical_ratio": true,
+          "curve_count": false,
+          "forced_fit_explains_reported_0_94": true,
+          "free_intercept_exponent_is_one": true,
+          "positive_mode": false,
+          "schema": true,
+          "source_hash": true
+        },
+        "critical_scaling": {
+          "m": [
+            0.224,
+            0.392,
+            0.56
+          ],
+          "m_over_n": [
+            0.4,
+            0.4,
+            0.4
+          ],
+          "n": [
+            0.56,
+            0.98,
+            1.4
+          ],
+          "power_fit_forced_unit_coefficient": {
+            "exponent": 0.942872
+          },
+          "power_fit_with_free_intercept": {
+            "exponent": 1.0,
+            "log_coefficient": -0.916291
+          }
+        },
+        "diagnostics": {
+          "gains_10_to_40": [
+            19.099999999999998,
+            20.03,
+            19.68,
+            10.71,
+            10.799999999999999,
+            7.59,
+            18.550000000000004,
+            16.99,
+            12.219999999999999
+          ],
+          "maximum_plateau_range": 1.4200000000000017,
+          "minimum_gain": 7.59,
+          "plateau_ranges_40_to_100": [
+            0.4000000000000057,
+            0.1599999999999966,
+            0.3100000000000023,
+            1.0700000000000003,
+            0.2699999999999996,
+            1.42,
+            1.2899999999999991,
+            1.4200000000000017,
+            0.6600000000000001
+          ]
+        },
+        "limitation": "released author figures only; no independent training, raw measurements, seeds, or uncertainty",
+        "performance": {
+          "Flickr mean recall@1": {
+            "10M": [
+              1.22,
+              10.57,
+              27.56,
+              27.99,
+              28.98
+            ],
+            "14M": [
+              1.47,
+              14.79,
+              33.34,
+              33.91,
+              34.63
+            ],
+            "6M": [
+              0.95,
+              6.64,
+              18.86,
+              19.28,
+              19.52
+            ]
+          },
+          "ImageNet top-1 accuracy": {
+            "10M": [
+              1.47,
+              17.08,
+              37.11,
+              37.02,
+              37.18
+            ],
+            "14M": [
+              2.07,
+              21.7,
+              40.8,
+              41.2,
+              40.95
+            ],
+            "6M": [
+              1.07,
+              8.61,
+              28.29,
+              28.38,
+              28.6
+            ]
+          },
+          "MSCOCO mean recall@1": {
+            "10M": [
+              0.68,
+              7.17,
+              17.97,
+              18.22,
+              18.24
+            ],
+            "14M": [
+              0.74,
+              9.91,
+              20.62,
+              21.23,
+              21.69
+            ],
+            "6M": [
+              0.35,
+              3.51,
+              11.1,
+              12.22,
+              12.52
+            ]
+          }
+        },
+        "source": {
+          "retrieval_date": "2026-07-29",
+          "sha256": "2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764",
+          "url": "https://export.arxiv.org/e-print/2605.02116v3"
+        },
+        "status": "FAILED"
+      },
+      "negative_control_exit": 1,
+      "positive_checker": {
+        "checks": {
+          "all_10_to_40_gains_exceed_threshold": true,
+          "all_40_to_100_ranges_below_threshold": true,
+          "critical_ratio": true,
+          "curve_count": true,
+          "forced_fit_explains_reported_0_94": true,
+          "free_intercept_exponent_is_one": true,
+          "positive_mode": true,
+          "schema": true,
+          "source_hash": true
+        },
+        "critical_scaling": {
+          "m": [
+            0.224,
+            0.392,
+            0.56
+          ],
+          "m_over_n": [
+            0.4,
+            0.4,
+            0.4
+          ],
+          "n": [
+            0.56,
+            0.98,
+            1.4
+          ],
+          "power_fit_forced_unit_coefficient": {
+            "exponent": 0.942872
+          },
+          "power_fit_with_free_intercept": {
+            "exponent": 1.0,
+            "log_coefficient": -0.916291
+          }
+        },
+        "diagnostics": {
+          "gains_10_to_40": [
+            19.099999999999998,
+            20.03,
+            19.68,
+            10.71,
+            10.799999999999999,
+            7.59,
+            18.550000000000004,
+            16.99,
+            12.219999999999999
+          ],
+          "maximum_plateau_range": 1.4200000000000017,
+          "minimum_gain": 7.59,
+          "plateau_ranges_40_to_100": [
+            0.4000000000000057,
+            0.1599999999999966,
+            0.3100000000000023,
+            1.0700000000000003,
+            0.2699999999999996,
+            1.42,
+            1.2899999999999991,
+            1.4200000000000017,
+            0.6600000000000001
+          ]
+        },
+        "limitation": "released author figures only; no independent training, raw measurements, seeds, or uncertainty",
+        "performance": {
+          "Flickr mean recall@1": {
+            "10M": [
+              1.22,
+              10.57,
+              27.56,
+              27.99,
+              28.98
+            ],
+            "14M": [
+              1.47,
+              14.79,
+              33.34,
+              33.91,
+              34.63
+            ],
+            "6M": [
+              0.95,
+              6.64,
+              18.86,
+              19.28,
+              19.52
+            ]
+          },
+          "ImageNet top-1 accuracy": {
+            "10M": [
+              1.47,
+              17.08,
+              37.11,
+              37.02,
+              37.18
+            ],
+            "14M": [
+              2.07,
+              21.7,
+              40.8,
+              41.2,
+              40.95
+            ],
+            "6M": [
+              1.07,
+              8.61,
+              28.29,
+              28.38,
+              28.6
+            ]
+          },
+          "MSCOCO mean recall@1": {
+            "10M": [
+              0.68,
+              7.17,
+              17.97,
+              18.22,
+              18.24
+            ],
+            "14M": [
+              0.74,
+              9.91,
+              20.62,
+              21.23,
+              21.69
+            ],
+            "6M": [
+              0.35,
+              3.51,
+              11.1,
+              12.22,
+              12.52
+            ]
+          }
+        },
+        "source": {
+          "retrieval_date": "2026-07-29",
+          "sha256": "2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764",
+          "url": "https://export.arxiv.org/e-print/2605.02116v3"
+        },
+        "status": "CORROBORATED_AUTHOR_FIGURES"
+      },
+      "positive_checker_exit": 0,
+      "status": "CORROBORATED_AUTHOR_FIGURES"
+    }
+  },
+  "compute": {
+    "actual_available_cpus": 64,
+    "actual_logical_cpus": 64,
+    "estimated_cores": 1,
+    "platform": "Linux-6.12.90-120.164.amzn2023.x86_64-x86_64-with-glibc2.36",
+    "runtime_seconds": 24.729709,
+    "selected_flavor": "cpu-upgrade"
+  },
+  "historical_baseline_passed": true,
+  "historical_live_score": "5/12",
+  "mode": "cumulative_claim_verification",
+  "provenance": {
+    "git_sha": "aa5a6f11c751cb2c2428f0f2c85495565b06678e",
+    "judged_space_revision": "302f93efc3f480fc58029255717998691d765314",
+    "paper_html_sha256": "922ea3119121dfdc6e388c4e6bfa7eb931ceb0cf1b890dc996defcb36aea3154",
+    "paper_source_sha256": "2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764",
+    "verdict_dataset_sha256": "0e0ba800ca0a5f55a3ab81e418e51d57907fa03179c270270d7944e23a916c77"
+  },
+  "status": "VERIFIED"
+}

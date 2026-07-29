@@ -1,0 +1,13 @@
+{
+  "schema": "crl-section5-vector-v1",
+  "mode": "negative",
+  "claim_id": 6,
+  "source_url": "https://export.arxiv.org/e-print/2605.02116v3",
+  "source_sha256": "2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764",
+  "retrieval_date": "2026-07-29",
+  "expected_curve_count_per_task": 4,
+  "negative_ratios_percent": [1, 10, 40, 70, 100],
+  "minimum_gain_10_to_40": 5.0,
+  "maximum_plateau_range_40_to_100": 1.5,
+  "expected_critical_ratio": 0.4
+}

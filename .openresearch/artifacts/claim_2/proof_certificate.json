@@ -1,0 +1,19 @@
+{
+  "schema": "crl-theorem-certificate-v1",
+  "mode": "positive",
+  "claim_id": 2,
+  "source_sha256": "2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764",
+  "source_anchor": "consistency.tex thm:compare_cl; appendix/proof_consistency.tex",
+  "assumptions": {
+    "tau": "tau > 0",
+    "risk": "finite",
+    "support": "density-ratio construction is well-defined"
+  },
+  "proof_chain": [
+    "risk-to-KL identity",
+    "Pinsker inequality",
+    "pairwise ranking lemma",
+    "Jensen inequality"
+  ],
+  "calibration_constant": "2"
+}

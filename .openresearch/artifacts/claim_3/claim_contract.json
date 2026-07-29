@@ -1,0 +1,14 @@
+{
+  "claim_id": 3,
+  "source_anchor": "Theorem 4.5 (thm:CRL_gen)",
+  "domain": "SCRL with independently sampled negatives per anchor and the bounded ReLU-network class in Assumption 4.1",
+  "assumptions": [
+    "bounded unit-norm inputs",
+    "ReLU network with layer spectral norms bounded by s_l",
+    "B is the product of squared spectral-norm bounds",
+    "tau > 0, n and m positive, delta in (0,1)"
+  ],
+  "quantifier": "with probability at least 1-delta, uniformly for all w in W",
+  "predicate": "the exact displayed bound has inner term 2 exp(8B/tau) tau/m and an outer term proportional to 1/sqrt(n) with logarithmic factors",
+  "verdict_rule": "The source supports tilde-O(1/m+1/sqrt(n)); a literal log-free O statement is not asserted"
+}

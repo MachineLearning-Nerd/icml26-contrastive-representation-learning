@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "failures": [],
+  "upload_file_count": 190,
+  "text_only": true,
+  "secret_scan": "PASS",
+  "historical_old_file_count": 13,
+  "all_old_paths_present": true,
+  "historical_evidence_page_unchanged": true,
+  "red_team_round_2": "PASS",
+  "formal_run_id": "b87faa51-053f-47e2-b886-ff2e5f1bef56",
+  "winning_git_sha": "aa5a6f11c751cb2c2428f0f2c85495565b06678e",
+  "candidate_verdicts": {
+    "claim_1": "VERIFIED",
+    "claim_2": "VERIFIED",
+    "claim_3": "VERIFIED",
+    "claim_4": "VERIFIED",
+    "claim_5": "VERIFIED",
+    "claim_6": "BLOCKED"
+  }
+}

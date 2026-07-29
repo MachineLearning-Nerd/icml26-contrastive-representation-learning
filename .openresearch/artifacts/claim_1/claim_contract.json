@@ -1,0 +1,32 @@
+{
+  "claim_id": 1,
+  "paper_anchor": "Theorem 3.1; Lemmas 3.2 and 3.3",
+  "exact_statement": "A minimizer of L(s) is a maximizer of E(s).",
+  "quantifiers": {
+    "temperature": "for every tau > 0",
+    "anchor": "for p_X-almost every x",
+    "scorer": "every measurable real-valued scorer s attaining inf_s L(s)",
+    "function_class": "all measurable s: X x Y -> R"
+  },
+  "well_posedness_audit": [
+    "p_x+ and p_x- admit densities on a common measurable support",
+    "the likelihood ratio p_x+/p_x- is positive and finite almost everywhere",
+    "the log-partition and risks are finite",
+    "a real-valued minimizer exists"
+  ],
+  "acceptance_criteria": [
+    "The checker verifies L(s)-L* = tau E_x KL(p_x+ || q_x,s).",
+    "KL equality yields s(x,y)=tau log(p_x+(y)/p_x-(y))+g(x).",
+    "An exact pairwise exchange certificate proves this ordering maximizes E.",
+    "Exact rational exhaustive checks pass for every positive integer distribution in the declared finite audit domain.",
+    "The reversed-order negative control exits nonzero for the intended reason.",
+    "The historical 5/12 baseline integrity suite still passes."
+  ],
+  "verdict_rule": {
+    "VERIFIED": "All acceptance criteria pass.",
+    "FALSIFIED": "A counterexample satisfies every well-posedness condition and has a loss minimizer that is not an E maximizer.",
+    "BLOCKED": "The symbolic certificate or independent checker is incomplete."
+  },
+  "non_circularity": "The proof uses no formula-derived sample size, fitted tolerance, or stochastic success criterion."
+}
+

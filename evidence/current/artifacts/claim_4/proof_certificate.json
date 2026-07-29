@@ -1,0 +1,11 @@
+{
+  "schema": "crl-theorem-certificate-v1",
+  "mode": "positive",
+  "claim_id": 4,
+  "source_sha256": "2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764",
+  "source_anchor": "generalization.tex ass:bounded_data, eq:err_decom_sscrl, thm:gen_SSCRL",
+  "negative_sampling": "one shared set of m negatives for all n anchors",
+  "probability": "at least 1-delta",
+  "uniform_over": "all w in W",
+  "reported_rate": "tilde-O(1/sqrt(m) + 1/sqrt(n)); exact theorem retains logarithms"
+}

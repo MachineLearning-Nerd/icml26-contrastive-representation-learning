@@ -1,0 +1,20 @@
+{
+  "schema": "crl-section5-release-audit-v1",
+  "mode": "negative",
+  "audit_date": "2026-07-29",
+  "paper_source_sha256": "2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764",
+  "paper_specific_code_url": "released",
+  "paper_specific_config_url": "released",
+  "raw_section5_table_url": "released",
+  "checkpoint_urls": ["released"],
+  "seed_record": "released",
+  "uncertainty_record": "released",
+  "dfn_split_identifiers": "released",
+  "negative_subset_identifiers": "released",
+  "generic_fastclip_code_url": "https://github.com/Optimization-AI/FastCLIP",
+  "github_repository_search": {
+    "query": "\"2605.02116\" OR \"Statistical Consistency and Generalization of Contrastive Representation Learning\"",
+    "retrieved": "2026-07-29",
+    "total_count": 0
+  }
+}

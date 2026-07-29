@@ -1,0 +1,15 @@
+[project]
+name = "contrastive-consistency-reproduction"
+version = "0.1.0"
+description = "Reproduction evidence for arXiv:2605.02116"
+requires-python = "==3.12.*"
+dependencies = [
+  "marimo==0.15.5",
+  "matplotlib==3.10.5",
+  "numpy==2.3.2",
+  "pdfplumber==0.11.7",
+  "pypdf==5.9.0",
+  "scipy==1.16.1",
+  "sympy==1.14.0",
+]
+

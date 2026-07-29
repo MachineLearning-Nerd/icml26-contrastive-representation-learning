@@ -1,0 +1,22 @@
+{
+  "claim_id": 6,
+  "source_anchor": "Section 5 (experiment_conclusion.tex)",
+  "domain": "FastCLIP on DFN anchor subsets of nominal sizes 6M, 10M, and 14M",
+  "negative_ratios": [0.01, 0.1, 0.4, 0.7, 1.0],
+  "processed_samples_per_model": 320000000,
+  "minimum_model_count": 15,
+  "metrics": [
+    "ImageNet zero-shot top-1 accuracy",
+    "MSCOCO mean image/text recall@1",
+    "Flickr mean image/text recall@1"
+  ],
+  "verification_requires": [
+    "paper-specific executable training configuration",
+    "exact DFN split identifiers and negative subset identities",
+    "trained checkpoints or independently repeated training",
+    "raw per-run metrics",
+    "random seeds",
+    "uncertainty from repeated runs"
+  ],
+  "verdict_rule": "author figures alone are insufficient for VERIFIED; a failed reproduction is not FALSIFIED"
+}

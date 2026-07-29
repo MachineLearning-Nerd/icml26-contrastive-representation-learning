@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "title": "Contrastive RL Consistency & Generalization \u2014 xixoixLXCr",
+  "emoji": "\ud83c\udfaf",
+  "space_id": "DineshAI/xixoixLXCr",
+  "paper": "2605.02116",
+  "tags": [
+    "icml2026-repro",
+    "paper-xixoixLXCr"
+  ],
+  "updated_at": "2026-07-29T18:00:00+00:00",
+  "root": {
+    "slug": "index",
+    "title": "Current claim-by-claim verification",
+    "file": "pages/index.md",
+    "children": [
+      {
+        "slug": "current/claim-1",
+        "title": "Current Claim 1",
+        "file": "pages/current/claim-1/page.md",
+        "children": []
+      },
+      {
+        "slug": "current/claim-2",
+        "title": "Current Claim 2",
+        "file": "pages/current/claim-2/page.md",
+        "children": []
+      },
+      {
+        "slug": "current/claim-3",
+        "title": "Current Claim 3",
+        "file": "pages/current/claim-3/page.md",
+        "children": []
+      },
+      {
+        "slug": "current/claim-4",
+        "title": "Current Claim 4",
+        "file": "pages/current/claim-4/page.md",
+        "children": []
+      },
+      {
+        "slug": "current/claim-5",
+        "title": "Current Claim 5",
+        "file": "pages/current/claim-5/page.md",
+        "children": []
+      },
+      {
+        "slug": "current/claim-6",
+        "title": "Current Claim 6",
+        "file": "pages/current/claim-6/page.md",
+        "children": []
+      },
+      {
+        "slug": "report",
+        "title": "Illustrated release report",
+        "file": "reports/reproduction/report.md",
+        "children": []
+      },
+      {
+        "slug": "overview",
+        "title": "Historical rejected baseline",
+        "file": "pages/overview/page.md",
+        "children": []
+      }
+    ]
+  },
+  "agent_view_tokens": 9000,
+  "revision": "aa5a6f11c751cb2c2428f0f2c85495565b06678e"
+}

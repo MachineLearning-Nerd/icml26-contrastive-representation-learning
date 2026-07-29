@@ -1,0 +1,14 @@
+{
+  "schema": "crl-theorem-certificate-v1",
+  "mode": "negative",
+  "claim_id": 3,
+  "source_sha256": "2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764",
+  "source_anchor": "deliberately invalid certificate",
+  "sampling": "m independent negatives per anchor",
+  "probability": "at least 1-delta",
+  "uniform_over": "all w in W",
+  "combination": "|A-C| = |A-B| + |B-C|",
+  "inner_bound": "2 exp(8B/tau) tau/m",
+  "reported_rate": "O(1/m + 1/sqrt(n)) with no logarithms",
+  "expected_failure": "triangle inequality was replaced by equality and logarithms were erased"
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "crl-proof-certificate-v1",
+  "claim_id": 1,
+  "score_order": "descending_likelihood_ratio",
+  "expected_result": "FAILED",
+  "expected_failure_reason": "reversed likelihood-ratio ordering is not AUC-optimal",
+  "assumptions": [
+    "tau > 0",
+    "strictly positive finite distributions"
+  ]
+}
+

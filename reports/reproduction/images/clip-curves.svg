@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="330" viewBox="0 0 860 330">
+<rect width="860" height="330" fill="#f7f4ed"/>
+<text x="430" y="32" text-anchor="middle" font-family="Arial" font-size="23" font-weight="700">Section 5 author-figure values, independently extracted</text>
+<path d="M80 60 V260 H760" fill="none" stroke="#333" stroke-width="2"/>
+<g font-family="Arial" font-size="12" fill="#444">
+<text x="420" y="312" text-anchor="middle">negative samples as % of anchors</text>
+<text x="25" y="160" transform="rotate(-90 25 160)" text-anchor="middle">reported metric (%)</text>
+<text x="86.8" y="280" text-anchor="middle">1</text><text x="148.0" y="280" text-anchor="middle">10</text><text x="352.0" y="280" text-anchor="middle">40</text><text x="556.0" y="280" text-anchor="middle">70</text><text x="760.0" y="280" text-anchor="middle">100</text>
+</g><polyline points="86.8,249.7 148.0,151.5 352.0,56.0 556.0,54.0 760.0,55.2" fill="none" stroke="#315a76" stroke-width="3"/><circle cx="86.8" cy="249.7" r="4" fill="#315a76"/><circle cx="148.0" cy="151.5" r="4" fill="#315a76"/><circle cx="352.0" cy="56.0" r="4" fill="#315a76"/><circle cx="556.0" cy="54.0" r="4" fill="#315a76"/><circle cx="760.0" cy="55.2" r="4" fill="#315a76"/><text x="650" y="52" font-family="Arial" font-size="13" fill="#315a76">ImageNet 14M</text><polyline points="86.8,256.3 148.0,210.4 352.0,156.9 556.0,153.8 760.0,151.6" fill="none" stroke="#b24b3f" stroke-width="3"/><circle cx="86.8" cy="256.3" r="4" fill="#b24b3f"/><circle cx="148.0" cy="210.4" r="4" fill="#b24b3f"/><circle cx="352.0" cy="156.9" r="4" fill="#b24b3f"/><circle cx="556.0" cy="153.8" r="4" fill="#b24b3f"/><circle cx="760.0" cy="151.6" r="4" fill="#b24b3f"/><text x="650" y="74" font-family="Arial" font-size="13" fill="#b24b3f">COCO 14M</text><polyline points="86.8,252.7 148.0,186.1 352.0,93.3 556.0,90.5 760.0,86.8" fill="none" stroke="#137a52" stroke-width="3"/><circle cx="86.8" cy="252.7" r="4" fill="#137a52"/><circle cx="148.0" cy="186.1" r="4" fill="#137a52"/><circle cx="352.0" cy="93.3" r="4" fill="#137a52"/><circle cx="556.0" cy="90.5" r="4" fill="#137a52"/><circle cx="760.0" cy="86.8" r="4" fill="#137a52"/><text x="650" y="96" font-family="Arial" font-size="13" fill="#137a52">Flickr 14M</text>
+<line x1="352.0" y1="56" x2="352.0" y2="260" stroke="#a65d00" stroke-dasharray="6 5"/>
+<text x="360.0" y="252" font-family="Arial" font-size="12" fill="#a65d00">m=0.4n</text>
+</svg>

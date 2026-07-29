@@ -1,0 +1,13 @@
+{
+  "claim_id": 2,
+  "source_anchor": "Theorem 3.4 (thm:compare_cl)",
+  "domain": "measurable real-valued scorers with finite contrastive risk",
+  "assumptions": [
+    "temperature tau is strictly positive",
+    "the positive and negative conditional laws admit the density-ratio construction used in Lemmas 3.2 and 3.3",
+    "the displayed risks and conditional expectations are finite"
+  ],
+  "quantifier": "for every admissible scorer s",
+  "predicate": "E* - E(s) <= sqrt((2/tau) * (L(s)-L*))",
+  "verdict_rule": "VERIFIED only if the independent symbolic reconstruction passes and the deliberately invalid coefficient is rejected"
+}

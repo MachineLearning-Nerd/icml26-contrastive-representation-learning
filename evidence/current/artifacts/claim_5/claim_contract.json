@@ -1,0 +1,8 @@
+{
+  "claim_id": 5,
+  "source_anchor": "Section 4, equations err_decom_inner_outer and err_decom_sscrl",
+  "domain": "the exact SCRL and SSCRL population/empirical risks under Assumption 4.1",
+  "quantifier": "every admissible w; high-probability bounds inherit their theorem quantifiers",
+  "predicate": "triangle-inequality decompositions separate inner negative-sampling error and outer anchor-sampling error; the derived upper bounds decrease in m and balance at sqrt(n) for SCRL and n for SSCRL at leading polynomial order",
+  "verdict_rule": "No additivity equality or monotonicity of the unknown true error may be claimed"
+}
