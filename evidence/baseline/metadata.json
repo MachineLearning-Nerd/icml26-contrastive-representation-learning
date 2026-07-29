@@ -1,0 +1,42 @@
+{
+  "paper": {
+    "arxiv_id": "2605.02116v3",
+    "html_url": "https://ar5iv.labs.arxiv.org/html/2605.02116",
+    "html_sha256": "922ea3119121dfdc6e388c4e6bfa7eb931ceb0cf1b890dc996defcb36aea3154",
+    "source_url": "https://export.arxiv.org/e-print/2605.02116v3",
+    "source_sha256": "2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764",
+    "retrieved_utc_date": "2026-07-29",
+    "user_agent": "OpenResearch-Reproduction/1.0 (paper audit; contact via repository)"
+  },
+  "judge": {
+    "dataset": "ICML-2026-agent-repro/verdicts",
+    "dataset_file": "verdicts.json",
+    "dataset_sha256": "0e0ba800ca0a5f55a3ab81e418e51d57907fa03179c270270d7944e23a916c77",
+    "filter": {
+      "space_id": "DineshAI/xixoixLXCr"
+    },
+    "space_revision": "302f93efc3f480fc58029255717998691d765314",
+    "judged_at": "2026-07-29T11:07:19+00:00",
+    "score_points": 5,
+    "score_possible": 12,
+    "claim_verdicts": [
+      "toy",
+      "toy",
+      "toy",
+      "toy",
+      "toy",
+      "inconclusive"
+    ]
+  },
+  "repository": {
+    "validated_start_sha": "ee3144275b29190240eb4816b190690182f335d9"
+  },
+  "compute_plan": {
+    "estimated_cores": 1,
+    "runtime_estimate": "Verifier under one minute; first locked dependency sync uncertain",
+    "selected_backend": "hf",
+    "selected_flavor": "cpu-upgrade",
+    "reason": "Uncertain first-time environment setup must not run locally"
+  }
+}
+
