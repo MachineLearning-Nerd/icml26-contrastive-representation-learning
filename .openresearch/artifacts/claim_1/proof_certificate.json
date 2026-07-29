@@ -1,0 +1,49 @@
+{
+  "schema": "crl-proof-certificate-v1",
+  "claim_id": 1,
+  "score_order": "ascending_likelihood_ratio",
+  "assumptions": [
+    "tau > 0",
+    "p_plus and p_minus are mutually absolutely continuous with positive finite density ratio almost everywhere",
+    "all displayed expectations are finite",
+    "a real-valued measurable minimizer exists"
+  ],
+  "steps": [
+    {
+      "id": "q_definition",
+      "statement": "q_s(y|x) = p_minus(y|x) exp(s(x,y)/tau) / Z_s(x)",
+      "justification": "definition"
+    },
+    {
+      "id": "risk_identity",
+      "statement": "L(s) - L_star = tau E_x KL(p_plus(.|x) || q_s(.|x))",
+      "justification": "expand KL and collect the log-partition and score terms",
+      "depends_on": ["q_definition"]
+    },
+    {
+      "id": "minimizer_characterization",
+      "statement": "L(s)=L_star iff s(x,y)=tau log(p_plus(y|x)/p_minus(y|x))+g(x)",
+      "justification": "KL nonnegativity and its equality condition q_s=p_plus",
+      "depends_on": ["risk_identity"]
+    },
+    {
+      "id": "pairwise_exchange",
+      "statement": "For r_i>r_j, placing i above j increases conditional AUC by p_minus_i p_minus_j (r_i-r_j)>0",
+      "justification": "exact pairwise exchange",
+      "depends_on": ["minimizer_characterization"]
+    },
+    {
+      "id": "conclusion",
+      "statement": "Every attainable minimizer of L maximizes E",
+      "justification": "log is strictly increasing for tau>0 and every inversion is suboptimal",
+      "depends_on": ["minimizer_characterization", "pairwise_exchange"]
+    }
+  ],
+  "finite_exact_audit": {
+    "support_sizes": [2, 3, 4],
+    "unnormalized_integer_weights": [1, 2, 3],
+    "arithmetic": "fractions.Fraction",
+    "scope": "stress test only; the symbolic certificate carries the universal conclusion"
+  }
+}
+

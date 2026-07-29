@@ -5,6 +5,7 @@ import json
 import os
 import platform
 import subprocess
+import sys
 import time
 from pathlib import Path
 
@@ -59,11 +60,55 @@ def main() -> int:
         "baseline_metadata_sha256": sha256(metadata_path)
         == "253510da4d6c59744f3dfd0e357355e489cd6482b13c39e78aaacdc8b6ef1ec5",
     }
-    passed = all(checks.values())
+    baseline_passed = all(checks.values())
+
+    claim_dir = ROOT / ".openresearch" / "artifacts" / "claim_1"
+    positive = subprocess.run(
+        [
+            sys.executable,
+            str(claim_dir / "checker.py"),
+            str(claim_dir / "proof_certificate.json"),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    negative = subprocess.run(
+        [
+            sys.executable,
+            str(claim_dir / "checker.py"),
+            str(claim_dir / "negative_control.json"),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    positive_result = json.loads(positive.stdout)
+    negative_result = json.loads(negative.stdout)
+    claim_1_passed = (
+        positive.returncode == 0
+        and positive_result["status"] == "VERIFIED"
+        and negative.returncode != 0
+        and negative_result["status"] == "FAILED"
+        and negative_result["failure_reason"]
+        == "reversed likelihood-ratio ordering is not AUC-optimal"
+    )
+    passed = baseline_passed and claim_1_passed
     result = {
-        "mode": "historical_judged_baseline",
+        "mode": "cumulative_claim_verification",
         "status": "VERIFIED" if passed else "FAILED",
-        "claim_upgrade": False,
+        "historical_baseline_passed": baseline_passed,
+        "claims": {
+            "claim_1": {
+                "status": "VERIFIED" if claim_1_passed else "BLOCKED",
+                "positive_checker_exit": positive.returncode,
+                "negative_control_exit": negative.returncode,
+                "positive_checker": positive_result,
+                "negative_control": negative_result,
+            }
+        },
         "historical_live_score": "5/12",
         "checks": checks,
         "provenance": {
@@ -85,9 +130,9 @@ def main() -> int:
     print("=== REPRODUCTION SUMMARY ===")
     print(json.dumps(result, indent=2, sort_keys=True))
     if not passed:
-        print("Baseline integrity check failed.")
+        print("Cumulative verification failed.")
         return 1
-    print("Historical baseline preserved. No claim is upgraded by this run.")
+    print("Historical baseline preserved. Claim 1 proof certificate verified.")
     return 0
 
 
