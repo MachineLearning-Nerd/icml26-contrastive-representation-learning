@@ -139,7 +139,64 @@ def main() -> int:
             "negative_control": negative_output,
         }
 
-    passed = baseline_passed and claim_1_passed and theorem_claims_passed
+    release_dir = ROOT / ".openresearch" / "artifacts" / "claim_6_release"
+    release_audit = subprocess.run(
+        [
+            sys.executable,
+            str(release_dir / "audit.py"),
+            str(release_dir / "release_inventory.json"),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    release_control = subprocess.run(
+        [
+            sys.executable,
+            str(release_dir / "audit.py"),
+            str(release_dir / "negative_control.json"),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    claim_6_verifier = subprocess.run(
+        [sys.executable, str(release_dir / "claim_verifier.py")],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    release_output = json.loads(release_audit.stdout)
+    release_control_output = json.loads(release_control.stdout)
+    claim_6_output = json.loads(claim_6_verifier.stdout)
+    release_route_passed = (
+        release_audit.returncode == 0
+        and release_output["status"] == "BLOCKED"
+        and release_control.returncode != 0
+        and release_control_output["status"] == "FAILED"
+        and claim_6_verifier.returncode != 0
+        and claim_6_output["status"] == "BLOCKED"
+    )
+    claims["claim_6_release_route"] = {
+        "status": "BLOCKED",
+        "route_completed": release_route_passed,
+        "release_audit_exit": release_audit.returncode,
+        "negative_control_exit": release_control.returncode,
+        "claim_verifier_exit": claim_6_verifier.returncode,
+        "release_audit": release_output,
+        "negative_control": release_control_output,
+        "claim_verifier": claim_6_output,
+    }
+
+    passed = (
+        baseline_passed
+        and claim_1_passed
+        and theorem_claims_passed
+        and release_route_passed
+    )
     result = {
         "mode": "cumulative_claim_verification",
         "status": "VERIFIED" if passed else "FAILED",
@@ -168,7 +225,9 @@ def main() -> int:
     if not passed:
         print("Cumulative verification failed.")
         return 1
-    print("Historical baseline preserved. Claims 1-5 proof certificates verified.")
+    print(
+        "Claims 1-5 verified; Claim 6 release audit completed with honest BLOCKED verdict."
+    )
     return 0
 
 
