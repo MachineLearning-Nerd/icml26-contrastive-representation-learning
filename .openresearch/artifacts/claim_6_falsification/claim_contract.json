@@ -1,0 +1,19 @@
+{
+  "claim_id": 6,
+  "source_anchor": "experiment_conclusion.tex, Section 5 paragraphs 1-3",
+  "exact_statement": "performance improves as m increases, but saturates after a critical negative data size; the empirical critical trend lies between sqrt(n) and n and is closer to n",
+  "domain": {
+    "method": "FastCLIP",
+    "data": "DFN subsets described as 6M, 10M, and 14M anchors",
+    "negative_ratios": [0.01, 0.1, 0.4, 0.7, 1.0],
+    "processed_samples_per_model": 320000000,
+    "shared_negatives": true,
+    "negative_positive_independence": "not auditable from released subset identities"
+  },
+  "falsification_predicate": {
+    "precritical": "a released curve fails to improve from 1% to 10% or from 10% to 40%",
+    "saturation": "a released curve has range greater than 1.5 percentage points from 40% through 100%",
+    "scaling": "the free-coefficient empirical exponent is outside [0.5, 1.0]",
+    "assumptions": "a contradiction counts only if shared-negative and independence assumptions are established"
+  }
+}

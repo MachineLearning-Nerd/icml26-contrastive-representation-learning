@@ -1,0 +1,24 @@
+{
+  "schema": "crl-section5-falsification-v1",
+  "mode": "negative",
+  "source_sha256": "2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764",
+  "ratios_percent": [1, 10, 40, 70, 100],
+  "curves": {
+    "ImageNet/14M": [2.07, 21.7, 10.0, 9.0, 8.0],
+    "ImageNet/10M": [1.47, 17.08, 37.11, 37.02, 37.18],
+    "ImageNet/6M": [1.07, 8.61, 28.29, 28.38, 28.6],
+    "MSCOCO/14M": [0.74, 9.91, 20.62, 21.23, 21.69],
+    "MSCOCO/10M": [0.68, 7.17, 17.97, 18.22, 18.24],
+    "MSCOCO/6M": [0.35, 3.51, 11.1, 12.22, 12.52],
+    "Flickr/14M": [1.47, 14.79, 33.34, 33.91, 34.63],
+    "Flickr/10M": [1.22, 10.57, 27.56, 27.99, 28.98],
+    "Flickr/6M": [0.95, 6.64, 18.86, 19.28, 19.52]
+  },
+  "critical": {
+    "n_times_1e7": [0.56, 0.98, 1.4],
+    "m_times_1e7": [0.224, 0.392, 0.56]
+  },
+  "shared_negative_sampling_established": true,
+  "negative_positive_independence_established": true,
+  "uncertainty_released": true
+}

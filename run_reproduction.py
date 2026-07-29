@@ -181,11 +181,54 @@ def main() -> int:
         "negative_control": claim_6_control,
     }
 
+    falsification_dir = (
+        ROOT / ".openresearch" / "artifacts" / "claim_6_falsification"
+    )
+    falsification = subprocess.run(
+        [
+            sys.executable,
+            str(falsification_dir / "verifier.py"),
+            str(falsification_dir / "reported_points.json"),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    falsification_control = subprocess.run(
+        [
+            sys.executable,
+            str(falsification_dir / "verifier.py"),
+            str(falsification_dir / "negative_control.json"),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    falsification_output = json.loads(falsification.stdout)
+    falsification_control_output = json.loads(falsification_control.stdout)
+    falsification_route_passed = (
+        falsification.returncode == 0
+        and falsification_output["status"] == "NO_VALID_FALSIFICATION"
+        and falsification_control.returncode != 0
+        and falsification_control_output["status"] == "VALID_FALSIFICATION"
+    )
+    claims["claim_6_falsification_route"] = {
+        "status": "BLOCKED",
+        "route_completed": falsification_route_passed,
+        "positive_checker_exit": falsification.returncode,
+        "negative_control_exit": falsification_control.returncode,
+        "positive_checker": falsification_output,
+        "negative_control": falsification_control_output,
+    }
+
     passed = (
         baseline_passed
         and claim_1_passed
         and theorem_claims_passed
         and claim_6_route_passed
+        and falsification_route_passed
     )
     result = {
         "mode": "cumulative_claim_verification",
@@ -216,7 +259,7 @@ def main() -> int:
         print("Cumulative verification failed.")
         return 1
     print(
-        "Claims 1-5 verified; Claim 6 author figures corroborated but independent verdict remains BLOCKED."
+        "Claims 1-5 verified; four-route Claim 6 investigation ends honestly BLOCKED."
     )
     return 0
 

@@ -15,6 +15,20 @@ power fit has exponent 1.0, while forcing coefficient 1 produces about 0.943.
 This corroborates what the author figures encode; it does not independently
 reproduce CLIP training.
 
+Three verification routes and the mandatory fourth falsification route were
+completed:
+
+1. Vector extraction: all 45 values recovered.
+2. Independent raster digitization: median error 0.024 points, maximum 0.77.
+3. Release audit: exact training requires at least 15 models and 4.8B processed
+   samples, but paper-specific code/configuration, subsets, checkpoints, raw
+   runs, seeds, and uncertainty are unavailable.
+4. Dedicated falsification: no assumption-satisfying contradiction was found.
+   An injected precritical reversal was correctly detected. Missing independence
+   evidence and uncertainty were not misreported as falsification.
+
+The final Claim 6 result is therefore **BLOCKED**, not FALSIFIED.
+
 - Fixed command: `uv sync --frozen && uv run --frozen python run_reproduction.py`
 - Verifier: `.openresearch/artifacts/claim_6_vector/verifier.py`
 - Source SHA-256: `2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764`
