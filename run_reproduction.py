@@ -95,7 +95,38 @@ def main() -> int:
         and negative_result["failure_reason"]
         == "reversed likelihood-ratio ordering is not AUC-optimal"
     )
-    passed = baseline_passed and claim_1_passed
+    stress_dir = ROOT / ".openresearch" / "artifacts" / "c2_c5_stress"
+    stress = subprocess.run(
+        [
+            sys.executable,
+            str(stress_dir / "checker.py"),
+            str(stress_dir / "stress_contract.json"),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    control = subprocess.run(
+        [
+            sys.executable,
+            str(stress_dir / "checker.py"),
+            str(stress_dir / "negative_control.json"),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    stress_result = json.loads(stress.stdout)
+    control_result = json.loads(control.stdout)
+    stress_passed = (
+        stress.returncode == 0
+        and stress_result["status"] == "NO_VALID_COUNTEREXAMPLE"
+        and control.returncode != 0
+        and control_result["status"] == "FAILED"
+    )
+    passed = baseline_passed and claim_1_passed and stress_passed
     result = {
         "mode": "cumulative_claim_verification",
         "status": "VERIFIED" if passed else "FAILED",
@@ -107,7 +138,14 @@ def main() -> int:
                 "negative_control_exit": negative.returncode,
                 "positive_checker": positive_result,
                 "negative_control": negative_result,
-            }
+            },
+            "claims_2_5_adversarial_stress": {
+                "status": "CORROBORATED" if stress_passed else "BLOCKED",
+                "positive_checker_exit": stress.returncode,
+                "negative_control_exit": control.returncode,
+                "positive_checker": stress_result,
+                "negative_control": control_result,
+            },
         },
         "historical_live_score": "5/12",
         "checks": checks,
@@ -132,7 +170,7 @@ def main() -> int:
     if not passed:
         print("Cumulative verification failed.")
         return 1
-    print("Historical baseline preserved. Claim 1 proof certificate verified.")
+    print("Historical baseline and Claim 1 pass; Claims 2-5 stress route passes.")
     return 0
 
 

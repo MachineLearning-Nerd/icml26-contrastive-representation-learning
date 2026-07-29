@@ -1,0 +1,10 @@
+{
+  "schema": "crl-adversarial-stress-v1",
+  "mode": "negative",
+  "seed": 260502116,
+  "random_cases": 20000,
+  "support_sizes": [2, 3, 4, 8, 16],
+  "source_sha256": "2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764",
+  "retain_log_factors": false,
+  "decomposition_relation": "="
+}
