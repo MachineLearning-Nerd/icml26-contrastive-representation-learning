@@ -151,7 +151,7 @@ seeds, and uncertainty are unavailable.
 Baseline HF Head and Judge Head:
 `302f93efc3f480fc58029255717998691d765314`. Baseline Git SHA:
 `ee3144275b29190240eb4816b190690182f335d9`. Winning branch:
-`orx/c6-dedicated-falsification`; winning Git SHA:
+`audit/c6-dedicated-falsification`; winning Git SHA:
 `aa5a6f11c751cb2c2428f0f2c85495565b06678e`.
 
 ## Experiment tree and compute

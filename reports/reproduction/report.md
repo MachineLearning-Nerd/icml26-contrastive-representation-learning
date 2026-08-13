@@ -102,7 +102,7 @@ and a mirror of the published text paths to GitHub `main`. No second Space is
 created. The live score remains **5/12** until the judge evaluates the new
 revision.
 
-- [Winning cumulative branch](https://github.com/MachineLearning-Nerd/icml26-repro-xixoixLXCr-statistical-consistency-and-generalization-of-contrastive-representation-lea/tree/orx/c6-dedicated-falsification)
+- [Winning cumulative branch](https://github.com/MachineLearning-Nerd/icml26-contrastive-representation-learning/tree/audit/c6-dedicated-falsification)
 - [Raw formal output](https://huggingface.co/spaces/DineshAI/xixoixLXCr/blob/main/evidence/current/formal_run.log)
 - [Machine-readable summary](https://huggingface.co/spaces/DineshAI/xixoixLXCr/blob/main/evidence/current/formal_run_summary.json)
 - [Claim contracts and verifiers](https://huggingface.co/spaces/DineshAI/xixoixLXCr/blob/main/evidence/current/artifacts)

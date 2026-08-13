@@ -495,7 +495,7 @@ and a mirror of the published text paths to GitHub `main`. No second Space is
 created. The live score remains **5/12** until the judge evaluates the new
 revision.
 
-- [Winning cumulative branch](https://github.com/MachineLearning-Nerd/icml26-repro-xixoixLXCr-statistical-consistency-and-generalization-of-contrastive-representation-lea/tree/orx/c6-dedicated-falsification)
+- [Winning cumulative branch](https://github.com/MachineLearning-Nerd/icml26-contrastive-representation-learning/tree/audit/c6-dedicated-falsification)
 - [Raw formal output]({SPACE}/evidence/current/formal_run.log)
 - [Machine-readable summary]({SPACE}/evidence/current/formal_run_summary.json)
 - [Claim contracts and verifiers]({SPACE}/evidence/current/artifacts)
@@ -622,7 +622,7 @@ tags:
 
 # Claim-by-claim reproduction: Statistical Consistency and Generalization of Contrastive Representation Learning
 
-[![Open in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/MachineLearning-Nerd/icml26-repro-xixoixLXCr-statistical-consistency-and-generalization-of-contrastive-representation-lea/blob/main/notebooks/reproduction.py)
+[![Open in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/MachineLearning-Nerd/icml26-contrastive-representation-learning/blob/main/notebooks/reproduction.py)
 
 We tested all six judged claims from arXiv:2605.02116. The historical K=6,
 512-anchor simulation was replaced for Claims 1–5 by exact symbolic certificates,
@@ -647,10 +647,10 @@ best-supported possible: **10/12**, not a judge result. Observed Claim 1 audit:
 | Branch/experiment | Purpose/change | Exact run command | Assessment/outcome | Compute |
 | --- | --- | --- | --- | --- |
 | `main` | Publication surface | Not run as an experiment (publication surface) | Mirrors accepted evidence | — |
-| [`orx/c1-constructive-proof-certificate`](https://github.com/MachineLearning-Nerd/icml26-repro-xixoixLXCr-statistical-consistency-and-generalization-of-contrastive-representation-lea/tree/orx/c1-constructive-proof-certificate) | Fisher-consistency proof certificate | `{FIXED_COMMAND}` | Claim 1 VERIFIED | HF cpu-upgrade |
-| [`orx/c2-c5-analytic-certificates`](https://github.com/MachineLearning-Nerd/icml26-repro-xixoixLXCr-statistical-consistency-and-generalization-of-contrastive-representation-lea/tree/orx/c2-c5-analytic-certificates) | Calibration/rate/decomposition certificates | `{FIXED_COMMAND}` | Claims 2–5 VERIFIED | HF cpu-upgrade |
-| [`orx/c6-vector-figure-extraction`](https://github.com/MachineLearning-Nerd/icml26-repro-xixoixLXCr-statistical-consistency-and-generalization-of-contrastive-representation-lea/tree/orx/c6-vector-figure-extraction) | Original vector extraction | `{FIXED_COMMAND}` | Corroborated figures; Claim 6 BLOCKED | HF cpu-upgrade |
-| [`orx/c6-dedicated-falsification`](https://github.com/MachineLearning-Nerd/icml26-repro-xixoixLXCr-statistical-consistency-and-generalization-of-contrastive-representation-lea/tree/orx/c6-dedicated-falsification) | Cumulative suite and fourth route | `{FIXED_COMMAND}` | Claims 1–5 VERIFIED; Claim 6 BLOCKED | HF cpu-upgrade, 24.729709 s verifier |
+| [`audit/c1-fisher-consistency`](https://github.com/MachineLearning-Nerd/icml26-contrastive-representation-learning/tree/audit/c1-fisher-consistency) | Fisher-consistency proof certificate | `{FIXED_COMMAND}` | Claim 1 VERIFIED | HF cpu-upgrade |
+| [`audit/c2-c5-analytic-certificates`](https://github.com/MachineLearning-Nerd/icml26-contrastive-representation-learning/tree/audit/c2-c5-analytic-certificates) | Calibration/rate/decomposition certificates | `{FIXED_COMMAND}` | Claims 2–5 VERIFIED | HF cpu-upgrade |
+| [`audit/c6-vector-figure-extraction`](https://github.com/MachineLearning-Nerd/icml26-contrastive-representation-learning/tree/audit/c6-vector-figure-extraction) | Original vector extraction | `{FIXED_COMMAND}` | Corroborated figures; Claim 6 BLOCKED | HF cpu-upgrade |
+| [`audit/c6-dedicated-falsification`](https://github.com/MachineLearning-Nerd/icml26-contrastive-representation-learning/tree/audit/c6-dedicated-falsification) | Cumulative suite and fourth route | `{FIXED_COMMAND}` | Claims 1–5 VERIFIED; Claim 6 BLOCKED | HF cpu-upgrade, 24.729709 s verifier |
 
 ## Reproduce
 
