@@ -3,6 +3,13 @@
 Independent, claim-by-claim reproduction audit for ICML 2026 paper
 [“Statistical Consistency and Generalization of Contrastive Representation Learning”](https://arxiv.org/abs/2605.02116).
 
+> **Audit status:** `PARTIAL_C1_C2_C3_C4_C5_VERIFIED_C6_BLOCKED_HISTORICAL_SCORE_5_OF_12_NO_CURRENT_SCORE`
+>
+> Claims 1–5 are verified within their reconstructed theorem contracts and
+> controls. Claim 6 is blocked because the paper-specific training inputs are
+> not released. See [`STATUS.md`](STATUS.md), [`CLAIM_EVIDENCE.md`](CLAIM_EVIDENCE.md),
+> and [`REPORT.md`](REPORT.md) for the machine-readable and claim-by-claim record.
+
 This repository audits the mathematical claims and the Section 5 empirical
 evidence. It is not an official author implementation. The author figure routes
 are evidence-preservation and feasibility audits, not a substitute for the
@@ -29,6 +36,11 @@ validly falsify the 15-run FastCLIP study. The previous live judge score was
 The current claim pages, source audits, raw evidence, checkers, controls, and
 limitations are linked from [`pages/index.md`](pages/index.md) and
 [`release/final_release_report.md`](release/final_release_report.md).
+
+The standardized audit package is also available in [`SOURCE_AUDIT.md`](SOURCE_AUDIT.md),
+[`ENVIRONMENT.md`](ENVIRONMENT.md), [`claims.json`](claims.json),
+[`reproduction_verdicts.json`](reproduction_verdicts.json), and
+[`EVIDENCE_MANIFEST.json`](EVIDENCE_MANIFEST.json).
 
 ## What the paper is doing
 

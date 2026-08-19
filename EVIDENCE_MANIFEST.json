@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "manifest_type": "claim_audit_release",
+  "source": {
+    "arxiv": "2605.02116",
+    "source_version": "arXiv v3",
+    "source_sha256": "2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764"
+  },
+  "required_paths": [
+    "README.md",
+    "STATUS.md",
+    "CLAIM_EVIDENCE.md",
+    "SOURCE_AUDIT.md",
+    "ENVIRONMENT.md",
+    "REPORT.md",
+    "branch-audit.md",
+    "pages/index.md",
+    "pages/current/claim-1/page.md",
+    "pages/current/claim-2/page.md",
+    "pages/current/claim-3/page.md",
+    "pages/current/claim-4/page.md",
+    "pages/current/claim-5/page.md",
+    "pages/current/claim-6/page.md",
+    "reports/reproduction/report.md",
+    "release/final_release_report.md",
+    "release/gate_report.json",
+    "evidence/current/formal_run_summary.json",
+    "evidence/current/historical_subset_audit.json",
+    "evidence/current/formal_run.log",
+    "evidence/current/red_team_round_1.md",
+    "evidence/current/red_team_round_2.md",
+    "evidence/current/run_reproduction.py",
+    "run_reproduction.py",
+    "pyproject.toml",
+    "uv.lock",
+    "verification/check_claims_2_5.py",
+    "tools/audit_candidate.py",
+    "tools/release_gate.py",
+    ".openresearch/artifacts/claim_1",
+    ".openresearch/artifacts/claim_2",
+    ".openresearch/artifacts/claim_3",
+    ".openresearch/artifacts/claim_4",
+    ".openresearch/artifacts/claim_5",
+    ".openresearch/artifacts/claim_6_vector",
+    ".openresearch/artifacts/claim_6_raster",
+    ".openresearch/artifacts/claim_6_release",
+    ".openresearch/artifacts/claim_6_falsification",
+    "claims.json",
+    "reproduction_verdicts.json",
+    "CITATION.cff",
+    "AUTHOR_THANK_YOU.md",
+    "AUTONOMOUS_STATE.json",
+    "verify_final.py"
+  ],
+  "claim_evidence": {
+    "C1": [
+      ".openresearch/artifacts/claim_1/proof_certificate.json",
+      ".openresearch/artifacts/claim_1/checker.py",
+      ".openresearch/artifacts/claim_1/negative_control.json"
+    ],
+    "C2": [
+      ".openresearch/artifacts/claim_2/proof_certificate.json",
+      ".openresearch/artifacts/claim_2/verifier.py",
+      ".openresearch/artifacts/claim_2/negative_control.json"
+    ],
+    "C3": [
+      ".openresearch/artifacts/claim_3/proof_certificate.json",
+      ".openresearch/artifacts/claim_3/verifier.py",
+      ".openresearch/artifacts/claim_3/negative_control.json"
+    ],
+    "C4": [
+      ".openresearch/artifacts/claim_4/proof_certificate.json",
+      ".openresearch/artifacts/claim_4/verifier.py",
+      ".openresearch/artifacts/claim_4/negative_control.json"
+    ],
+    "C5": [
+      ".openresearch/artifacts/claim_5/proof_certificate.json",
+      ".openresearch/artifacts/claim_5/verifier.py",
+      ".openresearch/artifacts/claim_5/negative_control.json"
+    ],
+    "C6": [
+      ".openresearch/artifacts/claim_6_vector",
+      ".openresearch/artifacts/claim_6_raster",
+      ".openresearch/artifacts/claim_6_release",
+      ".openresearch/artifacts/claim_6_falsification"
+    ]
+  },
+  "controls": {
+    "positive_and_negative_route_records": true,
+    "source_pinned": true,
+    "historical_paths_preserved": true,
+    "gpu_required_for_theoretical_audit": false,
+    "claim_6_full_training_available": false
+  },
+  "publication": {
+    "historical_live_score": "5/12",
+    "current_score_claim": false,
+    "publication_allowed": false,
+    "author_endorsement_claimed": false
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "paper": "xixoixLXCr",
+  "arxiv": "2605.02116",
+  "source_scope": "arXiv v3 source anchors and Section 5 release audit",
+  "source_sha256": "2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764",
+  "overall_verdict": "PARTIAL_C1_C2_C3_C4_C5_VERIFIED_C6_BLOCKED_RELEASE",
+  "claim_statuses": {
+    "C1": "VERIFIED_SCOPED",
+    "C2": "VERIFIED_SCOPED",
+    "C3": "VERIFIED_SCOPED",
+    "C4": "VERIFIED_SCOPED",
+    "C5": "VERIFIED_SCOPED",
+    "C6": "BLOCKED_RELEASE"
+  },
+  "formal": {
+    "c1_exact_distributions": 7371,
+    "c1_exact_rankings": 162000,
+    "c2_distribution_triples": 4672,
+    "c3_log_factors_preserved": true,
+    "c4_shared_negative_sampling_preserved": true,
+    "c5_decomposition_is_inequality": true
+  },
+  "claim_6": {
+    "figures_recovered": 45,
+    "raster_median_absolute_error_points": 0.024478,
+    "raster_maximum_absolute_error_points": 0.769378,
+    "critical_relationship": "m=0.4n",
+    "free_coefficient_power_exponent": 1.0,
+    "forced_unit_coefficient_power_exponent": 0.942872,
+    "minimum_models_without_repeats": 15,
+    "minimum_processed_sample_presentations": 4800000000,
+    "valid_falsification": false,
+    "paper_specific_training_inputs_complete": false
+  },
+  "historical_external_result": {
+    "live_judge_score": "5/12",
+    "current_score_claim": false
+  },
+  "publication": {
+    "publication_allowed": false,
+    "author_endorsement_claimed": false
+  },
+  "boundary": "Claims 1–5 are scoped theorem-contract audits. Claim 6 figure recovery is corroboration, not independent full-scale FastCLIP training."
+}

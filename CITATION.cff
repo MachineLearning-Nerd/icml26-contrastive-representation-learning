@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this audit, cite both this repository and the original paper."
+type: software
+title: "Independent audit of Statistical Consistency and Generalization of Contrastive Representation Learning"
+version: "1.0.0"
+date-released: 2026-08-19
+authors:
+  - name: MachineLearning-Nerd
+repository-code: "https://github.com/MachineLearning-Nerd/icml26-contrastive-representation-learning"
+url: "https://github.com/MachineLearning-Nerd/icml26-contrastive-representation-learning"
+abstract: "Claim-by-claim symbolic, exact finite, figure, and release audit of Statistical Consistency and Generalization of Contrastive Representation Learning."
+keywords:
+  - contrastive representation learning
+  - statistical consistency
+  - generalization
+  - FastCLIP
+  - reproduction
+preferred-citation:
+  type: article
+  title: "Statistical Consistency and Generalization of Contrastive Representation Learning"
+  authors:
+    - family-names: Li
+      given-names: Yuanfan
+    - family-names: Wei
+      given-names: Xiyuan
+    - family-names: Yang
+      given-names: Tianbao
+    - family-names: Ying
+      given-names: Yiming
+  year: 2026
+  url: "https://arxiv.org/abs/2605.02116"

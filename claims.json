@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "paper": {
+    "title": "Statistical Consistency and Generalization of Contrastive Representation Learning",
+    "arxiv": "2605.02116",
+    "submission": "xixoixLXCr",
+    "source_version": "arXiv v3",
+    "authors": [
+      "Yuanfan Li",
+      "Xiyuan Wei",
+      "Tianbao Yang",
+      "Yiming Ying"
+    ],
+    "source_sha256": "2222148e70964b5114907827b20fe95c3f087c54db39ade9d89a98e15c00e764"
+  },
+  "overall_status": "PARTIAL_C1_C2_C3_C4_C5_VERIFIED_C6_BLOCKED_HISTORICAL_SCORE_5_OF_12_NO_CURRENT_SCORE",
+  "claims": [
+    {
+      "id": "C1",
+      "name": "likelihood_ratio_ranking",
+      "status": "VERIFIED_SCOPED",
+      "paper_anchor": "Theorem 3.1",
+      "production": [
+        ".openresearch/artifacts/claim_1/proof_certificate.json",
+        ".openresearch/artifacts/claim_1/checker.py",
+        "evidence/current/formal_run_summary.json"
+      ],
+      "controls": [
+        ".openresearch/artifacts/claim_1/negative_control.json",
+        "reverse likelihood-ratio ordering fails the AUC optimum"
+      ],
+      "scope": "Symbolic KL/pairwise-exchange certificate plus exact finite stress audit; the source theorem supplies the universal conclusion.",
+      "counts": {
+        "exact_distributions": 7371,
+        "exact_rankings": 162000
+      }
+    },
+    {
+      "id": "C2",
+      "name": "calibration_inequality",
+      "status": "VERIFIED_SCOPED",
+      "paper_anchor": "Theorem 3.4",
+      "production": [
+        ".openresearch/artifacts/claim_2/proof_certificate.json",
+        ".openresearch/artifacts/claim_2/verifier.py",
+        "evidence/current/formal_run_summary.json"
+      ],
+      "controls": [
+        ".openresearch/artifacts/claim_2/negative_control.json",
+        "coefficient 1 is rejected; coefficient 2 is retained"
+      ],
+      "scope": "KL–Pinsker–ranking–Jensen chain with the paper's positive-temperature assumptions.",
+      "counts": {
+        "distribution_triples": 4672
+      }
+    },
+    {
+      "id": "C3",
+      "name": "scrl_generalization_rate",
+      "status": "VERIFIED_SCOPED",
+      "paper_anchor": "Theorem 4.5",
+      "production": [
+        ".openresearch/artifacts/claim_3/proof_certificate.json",
+        ".openresearch/artifacts/claim_3/verifier.py",
+        "evidence/current/formal_run_summary.json"
+      ],
+      "controls": [
+        ".openresearch/artifacts/claim_3/negative_control.json",
+        "log-free and equality mutation is rejected"
+      ],
+      "scope": "Bounded-class, probability, uniform quantifier, logarithmic factors, exact inner rate, and triangle combination are preserved."
+    },
+    {
+      "id": "C4",
+      "name": "sscrl_shared_negative_rate",
+      "status": "VERIFIED_SCOPED",
+      "paper_anchor": "Theorem 4.6",
+      "production": [
+        ".openresearch/artifacts/claim_4/proof_certificate.json",
+        ".openresearch/artifacts/claim_4/verifier.py",
+        "evidence/current/formal_run_summary.json"
+      ],
+      "controls": [
+        ".openresearch/artifacts/claim_4/negative_control.json",
+        "independent-negative and changed-rate mutation is rejected"
+      ],
+      "scope": "Verified for one shared negative set with the paper's independence and quantifier assumptions."
+    },
+    {
+      "id": "C5",
+      "name": "inner_outer_decomposition",
+      "status": "VERIFIED_SCOPED",
+      "paper_anchor": "Section 4",
+      "production": [
+        ".openresearch/artifacts/claim_5/proof_certificate.json",
+        ".openresearch/artifacts/claim_5/verifier.py",
+        "evidence/current/formal_run_summary.json"
+      ],
+      "controls": [
+        ".openresearch/artifacts/claim_5/negative_control.json",
+        "additive-equality proxy is rejected"
+      ],
+      "scope": "Triangle inequalities, derivative signs, balance points, and prior-bound scope are audited; no equality claim is inferred."
+    },
+    {
+      "id": "C6",
+      "name": "fastclip_scaling",
+      "status": "BLOCKED_RELEASE",
+      "paper_anchor": "Section 5",
+      "production": [
+        ".openresearch/artifacts/claim_6_vector",
+        ".openresearch/artifacts/claim_6_raster",
+        ".openresearch/artifacts/claim_6_release",
+        ".openresearch/artifacts/claim_6_falsification",
+        "evidence/current/formal_run_summary.json"
+      ],
+      "controls": [
+        ".openresearch/artifacts/claim_6_falsification/negative_control.json",
+        "injected precritical reversal is detected"
+      ],
+      "scope": "45 displayed values and the critical relation m=0.4n are corroborated, but missing paper-specific inputs prevent independent training or valid falsification."
+    }
+  ]
+}
