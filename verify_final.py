@@ -24,7 +24,7 @@ EXPECTED_BRANCHES = {
     "historical/judged-baseline",
     "main",
 }
-EXPECTED_COMMITS = 26
+EXPECTED_COMMITS = 27
 CANONICAL_IDENTITY = "MachineLearning-Nerd <MachineLearning-Nerd@users.noreply.github.com>"
 CLAIM_IDS = ["C1", "C2", "C3", "C4", "C5", "C6"]
 
@@ -93,7 +93,7 @@ def main() -> None:
 
     for claim_id in ["claim_1", "claim_2", "claim_3", "claim_4", "claim_5"]:
         require(summary["claims"][claim_id]["status"] == "VERIFIED", f"{claim_id} summary")
-    require(summary["claims"]["claim_6_falsification"]["status"] == "BLOCKED", "claim 6 summary")
+    require(summary["claims"]["claim_6_falsification_route"]["status"] == "BLOCKED", "claim 6 summary")
     require(reported["source_sha256"] == claims["paper"]["source_sha256"], "claim 6 source hash")
     require(reported["shared_negative_sampling_established"] is True, "shared negatives")
     require(reported["negative_positive_independence_established"] is False, "independence boundary")
